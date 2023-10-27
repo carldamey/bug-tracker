@@ -1,24 +1,40 @@
-# Project 2 oAuth Template
+# Bug Tracker
+This is a system designed to be implemented in a web app for users to create bugs, and for admins to view, update, or delete them.
+## Wireframes
+### User Interface
+![User Submussion Wireframes](./etc/images/Wireframe1.png)
+### Admin Interface
+![Admin Wireframes](./etc/images/Wireframe2.png)
+### User Status Checking
+![Status Wireframe](./etc/images/Wireframe3.png)
 
-Use this repo as the base for your project 2.
+## MVP
 
-## Getting Started
+To reach MVP, this project will need:
 
-* clone this repo (no forking needed) and cd into the new directory
-* run `rm -rf .git` to remove the git history
-* run `git init` to create a new git history
-* run `git add .` and `git commit -m "init commit"` to create the first commit of the repo 
-* create a new repo on github and follow the instructions to push an existing repository from the command line
-* run `npm i` to install the required packages
-* touch a `.env` file and add the following to it:
+ - The ability for a user to submit issues
+ - A System for differentiating users and admins
+ - A database for containing issues and related properties
+ - The ability for an admin to RUD data
 
-```shell
-DATABASE_URL= < copy mongo uri from atlas / previous project >
-GOOGLE_CLIENT_ID= < copy from google cloud devs / previous project >
-GOOGLE_SECRET=< copy from google cloud devs / previous project >
-GOOGLE_CALLBACK=http://localhost:3000/oauth2callback
-SECRET="can be any string"
-```
-* run `nodemon` to test your app!
+## Stretch Goals
 
-Use this readme as your project pitch! 
+If time permits it, I would like to add:
+
+ - A responsive design
+ - Ability to set priority of issues as an admin, and sort issues by it
+ - A system for users to track submitted issues
+ - Display of user OAuth profiles in admin view
+
+## Tech Stack
+
+ - HTML, CSS, JS
+ - Node.js, Express.js, OAuth, MongoDB, Mongoose
+ - VSCodium
+
+
+## Potential Roadblocks
+The biggest difficulties in this project are likely to be:
+
+ - Differentiation of users and admins
+ - Implementation of OAuth
