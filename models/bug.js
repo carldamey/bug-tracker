@@ -11,4 +11,3 @@ const bugSchema = new Schema({
 	priority: {type: Number, default: null, min: 1, max: 4},
 	replyDate: Date,
 })
-c

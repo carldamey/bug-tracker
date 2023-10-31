@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+
+input {
+    margin: 3vmin;
+}
+
+#report-body-input {
+    height: 30vmin;
+}
+
+.login-logout {
+	text-align: right;
+	right: 1vmin;
+	position: absolute;
+}
+
+#report-form {
+    justify-content:center;
+}
+
+#report-form>input {
+    width: 55vmin;
+    text-wrap: wrap;
+    padding: 0;
+    text-align: left;
+}
