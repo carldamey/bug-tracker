@@ -2,6 +2,13 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const bugSchema = new Schema({
-	title: {type: String, default: "untitled"},
-    
+	subject: {type: String, default: "Untitled"},
+	body: {type: String, default: "No body provided"},
+	supportNo: Number,
+	// --------------------------------------------REFERENCE USER-------------------------------------------//
+	open: {type: Boolean, default: true},
+	response: {type: String, default: "No response was provided."},
+	priority: {type: Number, default: null, min: 1, max: 4},
+	replyDate: Date,
 })
+c
