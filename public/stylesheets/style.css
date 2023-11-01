@@ -15,14 +15,3 @@ input {
 	right: 1vmin;
 	position: absolute;
 }
-
-#report-form {
-    justify-content:center;
-}
-
-#report-form>input {
-    width: 55vmin;
-    text-wrap: wrap;
-    padding: 0;
-    text-align: left;
-}
