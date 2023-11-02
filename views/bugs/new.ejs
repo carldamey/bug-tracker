@@ -1,6 +1,7 @@
 <%- include("../partials/header") %>
+
 <h1>Report a Bug</h1>
-<form id="report-form">
+<form id="report-form" action="/bugs" method="POST">
 	<textarea
 		id="report-subject-input"
 		type="text"
