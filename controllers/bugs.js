@@ -19,11 +19,15 @@ function showStatus(req, res) {
 }
 
 async function create(req, res) {
-    console.log("create called")
+    req.body.ticketNo
     try {
         await Bug.create(req.body)
         res.redirect("bugs/submit")
     } catch(err) {
         res.render("bugs/new", {errorMsg: err.message, title: "Error"})
     }
+}
+
+function showSubmit(req, res) {
+    res.render("/bugs/submit", {title: "Thank you!", ticketNo: req.body.ticketNo})
 }
