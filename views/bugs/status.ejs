@@ -2,11 +2,11 @@
 
 <h1>Check Report Status</h1>
 
-<form>
-    <input type="text" placeholder="Support Ticket Number">
-    <button type="submit">Check Report</button>
+<form action="/bugs/show/" method="GET">
+	<input type="text" id="ticketNo" placeholder="Support Ticket Number" /> 
+	<button type="submit">Search</button>
 </form>
 
-
+<!-- Handle incorrect numbers -->
 
 <%- include("../partials/footer") %>

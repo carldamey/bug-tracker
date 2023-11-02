@@ -30,3 +30,9 @@ async function create(req, res) {
 		})
 	}
 }
+
+function search(req, res) {
+    // search by number entered into status page
+    // find {ticketNo: entered number}
+    // take returned object and return info for show page
+}
