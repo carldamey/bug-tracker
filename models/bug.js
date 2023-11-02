@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const bugSchema = new Schema({
 	subject: {type: String, default: "Untitled"},
 	body: {type: String, default: "No body provided"},
-	supportNo: Number,
+	ticketNo: Number,
 	// --------------------------------------------REFERENCE USER-------------------------------------------//
 	open: {type: Boolean, default: true},
 	response: {type: String, default: "No response was provided."},
