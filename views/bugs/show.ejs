@@ -1,0 +1,11 @@
+<%- include("../partials/header") %>
+
+<h2><%= bug.subject %></h2>
+<p><%= bug.body %></p>
+
+<a href="">Edit Report</a>
+<form action="/bugs" method="DELETE">
+	<button type="submit">Delete Report</button>
+</form>
+
+<%- include("../partials/footer") %>

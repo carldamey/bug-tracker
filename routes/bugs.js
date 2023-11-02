@@ -5,7 +5,7 @@ const bugsCtrl = require("../controllers/bugs.js")
 
 router.get("/report", bugsCtrl.new)
 router.get("/status", bugsCtrl.showStatus)
-router.get("/:id")
+router.get("/show", bugsCtrl.show)
 router.post("/", bugsCtrl.create)
 
 module.exports = router

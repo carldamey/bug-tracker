@@ -4,6 +4,7 @@ module.exports = {
 	new: newBug,
 	showStatus,
 	create,
+    show,
 }
 
 function newBug(req, res) {
@@ -31,7 +32,11 @@ async function create(req, res) {
 	}
 }
 
-function search(req, res) {
+async function show(req, res) {
+    const ticketNo = req.query.ticketNo
+    const bug = await Bug.findOne({ticketNo})
+    console.log(bug)
+    res.render("bugs/show", {bug, title: `Report ${ticketNo}`})
     // search by number entered into status page
     // find {ticketNo: entered number}
     // take returned object and return info for show page
