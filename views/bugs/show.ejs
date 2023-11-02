@@ -3,7 +3,10 @@
 <h2><%= bug.subject %></h2>
 <p><%= bug.body %></p>
 
-<a href="">Edit Report</a>
+<form action="/bugs" method="PUT">
+	<button type="submit">Edit Report</button>
+</form><br>
+
 <form action="/bugs" method="DELETE">
 	<button type="submit">Delete Report</button>
 </form>

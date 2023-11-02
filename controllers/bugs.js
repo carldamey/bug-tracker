@@ -5,6 +5,7 @@ module.exports = {
 	showStatus,
 	create,
     show,
+    delete: deleteBug,
 }
 
 function newBug(req, res) {
@@ -37,7 +38,9 @@ async function show(req, res) {
     const bug = await Bug.findOne({ticketNo})
     console.log(bug)
     res.render("bugs/show", {bug, title: `Report ${ticketNo}`})
-    // search by number entered into status page
-    // find {ticketNo: entered number}
-    // take returned object and return info for show page
+}
+
+function deleteBug(req, res) {
+    Bug.deleteOne(req.params.bug)
+    res.redirect("bugs/status")
 }
