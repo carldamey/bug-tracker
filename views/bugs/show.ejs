@@ -8,8 +8,7 @@
 </form><br>
 
 <form action="/bugs" method="DELETE" method="POST">
-	<% req.body.bug = bug %>
-	<% console.log(req.body) %>
+	<input type="hidden" name="_id" value=<%  bug._id %>>
 	<button type="submit">Delete Report</button>
 </form>
 
