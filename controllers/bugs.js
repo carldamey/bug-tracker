@@ -1,4 +1,4 @@
-const Issue = require("../models/issue")
+const Bug = require("../models/bug")
 
 module.exports = {
 	new: newBug,

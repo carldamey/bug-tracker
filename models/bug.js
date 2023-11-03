@@ -14,9 +14,3 @@ const bugSchema = new Schema({
 })
 
 module.exports = mongoose.model("Bug", bugSchema)
-
-const bugSchema = new Schema({
-	subject: {type: String, default: "Untitled"},
-	body: {type: String, default: "No body provided"},
-	reportDate: String,
-})
