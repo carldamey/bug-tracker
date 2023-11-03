@@ -16,12 +16,14 @@ function newBug(req, res) {
 
 function showStatus(req, res) {
 	res.render("bugs/status", {
-		title: "Check Bug Status",
+		title: "Check Report Status",
 	})
 }
 
 async function create(req, res) {
+	console.log("create called")
 	req.body.ticketNo = new Date().getTime().toString().slice(-8)
+	req.body.reportDate = new Date().toLocaleTimeString
 	try {
 		await Bug.create(req.body)
 		res.render("bugs/submit", {title: "Thank you!", ticketNo: req.body.ticketNo})
@@ -41,6 +43,8 @@ async function show(req, res) {
 }
 
 function deleteBug(req, res) {
+	console.log("deletebug called")
+	console.log(req.body)
     Bug.deleteOne(req.params.bug)
     res.redirect("bugs/status")
 }

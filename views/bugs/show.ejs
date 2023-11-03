@@ -7,8 +7,12 @@
 	<button type="submit">Edit Report</button>
 </form><br>
 
-<form action="/bugs" method="DELETE">
+<form action="/bugs" method="DELETE" method="POST">
+	<% req.body.bug = bug %>
+	<% console.log(req.body) %>
 	<button type="submit">Delete Report</button>
 </form>
+
+<p>This report is currently open.</p>
 
 <%- include("../partials/footer") %>
