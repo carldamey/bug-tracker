@@ -3,15 +3,24 @@
 <h2><%= bug.subject %></h2>
 <p><%= bug.body %></p>
 
-<form action="/bugs" method="PUT">
+<!-- <form action="/bugs" method="PUT">
 	<button type="submit">Edit Report</button>
-</form><br>
+</form>
+<br /> -->
+
+<!-- display open status -->
+
+<!-- instead of editing reports, you can edit and delete commetns as additional note -->
 
 <form method="POST" action="/bugs/status?_method=DELETE">
-	<input type="hidden" name="_id" value="<%= bug._id %>">
+	<input type="hidden" name="_id" value="<%= bug._id %>" />
 	<button type="submit">Delete Report</button>
 </form>
 
-<p>This report is currently open.</p>
+<form action="/comments" method="POST">
+	<textarea name="content" placeholder="Leave a comment"></textarea>
+	<br />
+	<button type="submit">Post Comment</button>
+</form>
 
 <%- include("../partials/footer") %>
