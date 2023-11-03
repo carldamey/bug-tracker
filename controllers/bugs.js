@@ -4,8 +4,8 @@ module.exports = {
 	new: newBug,
 	showStatus,
 	create,
-    show,
-    delete: deleteBug,
+	show,
+	delete: deleteBug,
 }
 
 function newBug(req, res) {
@@ -26,7 +26,10 @@ async function create(req, res) {
 	req.body.reportDate = new Date().toLocaleTimeString()
 	try {
 		await Bug.create(req.body)
-		res.render("bugs/submit", {title: "Thank you!", ticketNo: req.body.ticketNo})
+		res.render("bugs/submit", {
+			title: "Thank you!",
+			ticketNo: req.body.ticketNo,
+		})
 	} catch (err) {
 		res.render("bugs/new", {
 			errorMsg: err.message,
@@ -36,15 +39,23 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-    const ticketNo = req.query.ticketNo
-    const bug = await Bug.findOne({ticketNo})
-    console.log(bug)
-    res.render("bugs/show", {bug, title: `Report ${ticketNo}`})
+	const ticketNo = req.query.ticketNo
+	const bug = await Bug.findOne({ticketNo})
+	console.log(bug)
+	if (bug) {
+		res.render("bugs/show", {bug, title: `Report ${ticketNo}`})
+	} else {
+		res.render("bugs/status", {title: "Please enter a valid ticket number."})
+	}
 }
 
-function deleteBug(req, res) {
-	console.log("deletebug called")
-	console.log(req.body)
-    Bug.deleteOne(req.params.bug)
-    res.redirect("bugs/status")
+async function deleteBug(req, res) {
+	try {
+		await Bug.deleteOne({_id: req.body._id})
+		res.redirect("../bugs/status")
+	} catch (err) {
+		res.render("bugs/new", {title: "Error", errorMsg: err})
+	}
 }
+
+// make dedicated error view
