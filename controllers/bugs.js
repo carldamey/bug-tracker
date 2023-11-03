@@ -23,7 +23,7 @@ function showStatus(req, res) {
 async function create(req, res) {
 	console.log("create called")
 	req.body.ticketNo = new Date().getTime().toString().slice(-8)
-	req.body.reportDate = new Date().toLocaleTimeString
+	req.body.reportDate = new Date().toLocaleTimeString()
 	try {
 		await Bug.create(req.body)
 		res.render("bugs/submit", {title: "Thank you!", ticketNo: req.body.ticketNo})

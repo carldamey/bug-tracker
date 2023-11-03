@@ -5,7 +5,7 @@ const bugSchema = new Schema({
 	subject: {type: String, default: "Untitled"},
 	body: {type: String, default: "No body provided"},
 	ticketNo: Number,
-	reportDate: Date,
+	reportDate: String,
 	// --------------------------------------------REFERENCE USER-------------------------------------------//
 	open: {type: Boolean, default: true},
 	response: {type: String, default: "No response was provided."},
