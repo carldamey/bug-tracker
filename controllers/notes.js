@@ -1,19 +1,27 @@
 const Bug = require("../models/bug")
 
 module.exports = {
-    new: newNote,
-    delete: deleteNote,
-    update
+	create,
+	delete: deleteNote,
+	update,
 }
 
-function newNote(req, res) {
-    return
+async function create(req, res) {
+	const bug = await Bug.findById(req.body._id)
+    req.body.postDate = new Date
+	bug.notes.push(req.body)
+	try {
+		await bug.save()
+	} catch (err) {
+		console.log(err)
+	}
+    res.redirect(`/bugs/${bug.id}`)
 }
 
 function deleteNote(req, res) {
-    return
+	return
 }
 
 function update(req, res) {
-    return
+	return
 }

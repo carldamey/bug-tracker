@@ -17,7 +17,7 @@ const bugSchema = new Schema({
 	response: {type: String, default: "No response was provided."},
 	priority: {type: Number, default: null, min: 1, max: 4},
 	replyDate: Date,
-	comments: [noteSchema]
+	notes: [noteSchema]
 })
 
 module.exports = mongoose.model("Bug", bugSchema)
