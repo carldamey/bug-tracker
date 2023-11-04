@@ -20,11 +20,10 @@ async function create(req, res) {
 }
 
 async function deleteNote(req, res) {
-	//replace bug with note
-	const note = await Bug.findById(req.params.id)
-	console.log(req.body)
+	const bug = await Bug.findById(req.body.bugId)
+	bug.notes = bug.notes.filter(note => note._id.toString() !== req.params.id)
 	try {
-		notes.deleteOne({_id: req.params.id})
+		await bug.save()
 		res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
 	} catch (error) {
 		res.render("error", {title: "Error", error})

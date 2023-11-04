@@ -12,6 +12,8 @@
 
 <!-- instead of editing reports, you can edit and delete commetns as additional note -->
 
+<!-- remove delete report option or at minimum fix the _id to bugID -->
+
 <form method="POST" action="/bugs/status?_method=DELETE">
 	<input type="hidden" name="_id" value="<%= bug._id %>" />
 	<button type="submit">Delete Report</button>
@@ -36,7 +38,7 @@
 	</p>
 	<br />
 	<form method="POST" action="/notes/<%= note._id %>?_method=DELETE">
-		<input type="hidden" name="note" value="<%= typeof note %>">
+		<input type="hidden" name="bugId" value="<%= bug._id %>">
 		<button type="submit">Delete Note</button>
 	</form>
 	<form method="POST" action="/notes/<%= note.id %>?_method=PUT">
