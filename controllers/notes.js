@@ -15,13 +15,18 @@ async function create(req, res) {
 	} catch (err) {
 		console.log(err)
 	}
-    res.redirect(`/bugs/${bug.id}`)
+	res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
+    // res.render("/bugs/show",{bug, title: `Report ${req.query.ticketNo}`})
 }
 
-function deleteNote(req, res) {
-	return
+async function deleteNote(req, res) {
+	const bug = await Bug.findById(req.body._id)
+	// bug.note
+	console.log("deletenote called")
+	res.redirect(`../bugs/show/?ticketNo=$`)
+	
 }
 
-function update(req, res) {
-	return
+async function update(req, res) {
+	console.log("update called")
 }

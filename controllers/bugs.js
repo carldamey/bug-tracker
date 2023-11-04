@@ -39,11 +39,10 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-	const ticketNo = req.query.ticketNo
-	const bug = await Bug.findOne({ticketNo})
+	const bug = await Bug.findOne({ticketNo: req.query.ticketNo})
 	console.log(bug)
 	if (bug) {
-		res.render("bugs/show", {bug, title: `Report ${ticketNo}`})
+		res.render("bugs/show", {bug, title: `Report ${req.query.ticketNo}`})
 	} else {
 		res.render("bugs/status", {title: "Please enter a valid ticket number."})
 	}
@@ -58,4 +57,4 @@ async function deleteBug(req, res) {
 	}
 }
 
-// make dedicated error view
+// use dedicated error view

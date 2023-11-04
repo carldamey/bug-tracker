@@ -24,4 +24,25 @@
 	<button type="submit">Add</button>
 </form>
 
+<% bug.notes.forEach(note => { %>
+<hr />
+<section class="note">
+	<p><%= note.content %></p>
+	<p>
+		<small
+			><%= note.postDate.toLocaleDateString()%> - <%=
+			note.postDate.toLocaleTimeString() %></small
+		>
+	</p>
+	<br />
+	<form method="POST" action="/notes/<%= note._id %>?_method=DELETE">
+		<button type="submit">Delete Note</button>
+	</form>
+	<form method="POST" action="/notes/<%= note.id %>?_method=PUT">
+		<button type="submit">Edit Note</button>
+	</form>
+</section>
+<% }) %>
+<hr />
+
 <%- include("../partials/footer") %>
