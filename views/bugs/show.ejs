@@ -19,7 +19,7 @@
 
 <form action="/notes/:<%= bug.id %>" method="POST">
 	<textarea name="content" placeholder="Add a note"></textarea>
-	<input type="hidden" name="_id" value="<%= bug._id %>" />
+	<input type="hidden" name="bugId" value="<%= bug._id %>" />
 	<br />
 	<button type="submit">Add</button>
 </form>
@@ -36,6 +36,7 @@
 	</p>
 	<br />
 	<form method="POST" action="/notes/<%= note._id %>?_method=DELETE">
+		<input type="hidden" name="note" value="<%= typeof note %>">
 		<button type="submit">Delete Note</button>
 	</form>
 	<form method="POST" action="/notes/<%= note.id %>?_method=PUT">

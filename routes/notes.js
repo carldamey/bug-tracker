@@ -4,7 +4,7 @@ const passport = require("passport")
 const notesCtrl = require("../controllers/notes.js")
 
 router.post("/:id", notesCtrl.create)
-router.delete("/", notesCtrl.delete)
-router.put("/", notesCtrl.update)
+router.delete("/:id", notesCtrl.delete)
+router.put("/:id", notesCtrl.update)
 
 module.exports = router
