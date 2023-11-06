@@ -21,7 +21,7 @@ function showStatus(req, res) {
 }
 
 async function create(req, res) {
-	console.log("create called")
+	console.log(req.body.user)
 	req.body.ticketNo = new Date().getTime().toString().slice(-8)
 	req.body.reportDate = new Date().toLocaleTimeString()
 	try {
@@ -39,6 +39,7 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
+	console.log(req.user)
 	const bug = await Bug.findOne({ticketNo: req.query.ticketNo})
 	if (bug) {
 		res.render("bugs/show", {bug, title: `Report ${req.query.ticketNo}`})
