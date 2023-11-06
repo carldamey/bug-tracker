@@ -19,11 +19,9 @@
 				<li><a href="/bugs/report">REPORT A BUG</a></li>
 				<li><a href="/bugs/status">CHECK REPORT STATUS</a></li>
 				<li><a href="/account-reports">MY REPORTS</a></li>
-				<li><a href="/">RETURN TO SITE</a> 
 				</ul>
 			</li>
 			<% if (user) { %>
-				<img id="pfp" src="<%= user.avatar %>">
 				<a class="login-logout" href="/logout">LOG OUT</a>
 			<% } else { %>
 				<a class="login-logout" href="/auth/google">LOG IN</a>
