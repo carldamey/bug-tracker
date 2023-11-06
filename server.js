@@ -15,6 +15,7 @@ require("./config/passport")
 const indexRouter = require("./routes/index")
 const bugsRouter = require("./routes/bugs")
 const notesRouter = require("./routes/notes")
+const accRepRouter = require("./routes/account-reports")
 
 const app = express()
 
@@ -49,6 +50,7 @@ app.use(function (req, res, next) {
 app.use("/", indexRouter)
 app.use("/bugs", bugsRouter)
 app.use("/notes", notesRouter)
+app.use("/account-reports", accRepRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
