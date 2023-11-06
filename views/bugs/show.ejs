@@ -2,6 +2,7 @@
 
 <h2><%= bug.subject %></h2>
 <p><%= bug.body %></p>
+<h3>This report is currently <%= bug.open ? "open" : "closed" %>.</h3>
 
 <!-- <form action="/bugs" method="PUT">
 	<button type="submit">Edit Report</button>
@@ -12,12 +13,11 @@
 
 <!-- instead of editing reports, you can edit and delete commetns as additional note -->
 
-<!-- remove delete report option or at minimum fix the _id to bugID -->
 
-<form method="POST" action="/bugs/status?_method=DELETE">
+<!-- <form method="POST" action="/bugs/status?_method=DELETE">
 	<input type="hidden" name="_id" value="<%= bug._id %>" />
 	<button type="submit">Delete Report</button>
-</form>
+</form> -->
 
 <form action="/notes/:<%= bug.id %>" method="POST">
 	<textarea name="content" placeholder="Add a note"></textarea>
