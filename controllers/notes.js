@@ -17,7 +17,6 @@ async function create(req, res) {
 		console.log(err)
 	}
 	res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
-	// res.render("/bugs/show",{bug, title: `Report ${req.query.ticketNo}`})
 }
 
 async function deleteNote(req, res) {
@@ -32,14 +31,12 @@ async function deleteNote(req, res) {
 }
 
 async function update(req, res) {
-	console.log("update called")
 	try {
 		const bug = await Bug.findById(req.body.bugId)
 		let noteIdx = bug.notes.findIndex(
 			note => note._id.toString() === req.params.id,
 		)
 		bug.notes[noteIdx].content = req.body.content
-		console.log("notes =", bug.notes)
 		await bug.save()
 		res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
 	} catch (error) {

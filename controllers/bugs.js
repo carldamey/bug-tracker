@@ -45,7 +45,6 @@ async function create(req, res) {
 }
 
 async function show(req, res) {
-	console.log(req.user)
 	const bug = await Bug.findOne({ticketNo: req.query.ticketNo})
 	if (bug) {
 		res.render("bugs/show", {bug, title: `Report #${req.query.ticketNo}`})

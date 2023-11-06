@@ -7,7 +7,6 @@ module.exports = {
 async function index(req, res) {
 	try {
 		if (req.user) {
-			// const reports = await Bug.find({user._id: req.user._id})
 		} else {
 			const reports = null
 		}
