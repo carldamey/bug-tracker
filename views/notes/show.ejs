@@ -1,0 +1,10 @@
+<%- include("../partials/header") %>
+
+<!-- show textbox w note as default -->
+<form id="edit-report-form" action="/notes/:id?_method=PUT">
+<textarea name="body" value="<%= note.body %>"></textarea>
+<button type="submit">Post</button>
+</form>
+
+
+<%- include("../partials/footer") %>

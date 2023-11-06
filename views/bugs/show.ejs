@@ -41,7 +41,8 @@
 		<input type="hidden" name="bugId" value="<%= bug._id %>">
 		<button type="submit">Delete Note</button>
 	</form>
-	<form method="POST" action="/notes/<%= note.id %>?_method=PUT">
+	<form method="GET" action="/notes/<%= note.id %>">
+		<input type="hidden" name="bugId" value="<%= bug._id %>">
 		<button type="submit">Edit Note</button>
 	</form>
 </section>

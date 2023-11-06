@@ -4,6 +4,7 @@ module.exports = {
 	create,
 	delete: deleteNote,
 	update,
+	show,
 }
 
 async function create(req, res) {
@@ -20,9 +21,11 @@ async function create(req, res) {
 }
 
 async function deleteNote(req, res) {
-	const bug = await Bug.findById(req.body.bugId)
-	bug.notes = bug.notes.filter(note => note._id.toString() !== req.params.id)
 	try {
+		const bug = await Bug.findById(req.body.bugId)
+		bug.notes = bug.notes.filter(
+			(note) => note._id.toString() !== req.params.id,
+		)
 		await bug.save()
 		res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
 	} catch (error) {
@@ -32,4 +35,17 @@ async function deleteNote(req, res) {
 
 async function update(req, res) {
 	console.log("update called")
+}
+
+async function show(req, res) {
+	try {
+		const bug = await Bug.findById(req.body.bugId)
+		console.log("req body = " + req.body)
+		const note = bug.notes.filter(
+			(note) => note._id.toString() === req.params.id,
+		)
+		res.render("notes/show", {title: "Update Note", note})
+	} catch (error) {
+		res.render("error", {title: "Error", error})
+	}
 }
