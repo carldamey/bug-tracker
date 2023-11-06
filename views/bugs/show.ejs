@@ -29,7 +29,7 @@
 <% bug.notes.forEach(note => { %>
 <hr />
 <section class="note">
-	<p><%= note.content %></p>
+	<p><%= note.toObject().content %></p>
 	<p>
 		<small
 			><%= note.postDate.toLocaleDateString()%> - <%=
@@ -41,7 +41,7 @@
 		<input type="hidden" name="bugId" value="<%= bug._id %>">
 		<button type="submit">Delete Note</button>
 	</form>
-	<form method="GET" action="/notes/<%= note.id %>">
+	<form method="POST" action="/notes/<%= note.id %>?_method=GET">
 		<input type="hidden" name="bugId" value="<%= bug._id %>">
 		<button type="submit">Edit Note</button>
 	</form>

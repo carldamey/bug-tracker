@@ -24,7 +24,6 @@ async function deleteNote(req, res) {
 	try {
 		const bug = await Bug.findById(req.body.bugId)
 		console.log("bugid = " + req.body.bugId)
-
 		bug.notes = bug.notes.filter(note => note._id.toString() !== req.params.id)
 		await bug.save()
 		res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
@@ -40,7 +39,6 @@ async function update(req, res) {
 async function show(req, res) {
 	try {
 		const bug = await Bug.findById(req.body.bugId)
-		console.log("bugid = " + req.body.bugId)
 		const note = bug.notes.filter(note => note._id.toString() === req.params.id)
 		res.render("notes/show", {title: "Update Note", note})
 	} catch (error) {

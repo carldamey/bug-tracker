@@ -2,7 +2,7 @@
 
 <!-- show textbox w note as default -->
 <form id="edit-report-form" action="/notes/:id?_method=PUT">
-<textarea name="body" value="<%= note.body %>"></textarea>
+<textarea name="body" > <%= note[0].content %></textarea>
 <button type="submit">Post</button>
 </form>
 
