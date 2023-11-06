@@ -24,6 +24,7 @@ async function create(req, res) {
 	console.log(req.body.user)
 	req.body.ticketNo = new Date().getTime().toString().slice(-8)
 	req.body.reportDate = new Date().toLocaleTimeString()
+	req.body.user = (req.user ? req.user : null)
 	try {
 		await Bug.create(req.body)
 		res.render("bugs/submit", {
