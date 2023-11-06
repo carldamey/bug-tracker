@@ -33,9 +33,11 @@ async function deleteNote(req, res) {
 
 async function update(req, res) {
 	console.log("update called")
-	try{
+	try {
 		const bug = await Bug.findById(req.body.bugId)
-		let noteIdx = bug.notes.findIndex(note => note._id.toString() === req.params.id)
+		let noteIdx = bug.notes.findIndex(
+			note => note._id.toString() === req.params.id,
+		)
 		bug.notes[noteIdx].content = req.body.content
 		console.log("notes =", bug.notes)
 		await bug.save()

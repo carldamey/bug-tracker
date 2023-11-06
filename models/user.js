@@ -10,7 +10,7 @@ const userSchema = new Schema(
 		},
 		email: String,
 		avatar: String,
-    reports: [Object],
+		reports: [Object],
 	},
 	{
 		timestamps: true,

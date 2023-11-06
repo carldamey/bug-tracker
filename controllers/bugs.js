@@ -24,7 +24,7 @@ function showStatus(req, res) {
 async function create(req, res) {
 	req.body.ticketNo = new Date().getTime().toString().slice(-8)
 	req.body.reportDate = new Date().toLocaleTimeString()
-	req.body.user = (req.user ? req.user : null)
+	req.body.user = req.user ? req.user : null
 	try {
 		const newBug = await Bug.create(req.body)
 		if (req.user) {

@@ -1,7 +1,7 @@
 <%- include("../partials/header") %>
 <div id="bug">
-<h2><%= bug.subject %></h2>
-<p><%= bug.body %></p>
+	<h2><%= bug.subject %></h2>
+	<p><%= bug.body %></p>
 </div>
 <h3>This report is currently <%= bug.open ? "open" : "closed" %>.</h3>
 
@@ -11,12 +11,12 @@
 	<br />
 	<button type="submit">Add</button>
 </form>
-<br>
+<br />
 
 <% bug.notes.forEach(note => { %>
 <hr />
 <section class="note">
-	<br>
+	<br />
 	<p><%= note.toObject().content %></p>
 	<p>
 		<small
@@ -25,11 +25,11 @@
 		>
 	</p>
 	<form method="POST" action="/notes/<%= note._id %>?_method=DELETE">
-		<input type="hidden" name="bugId" value="<%= bug._id %>">
+		<input type="hidden" name="bugId" value="<%= bug._id %>" />
 		<button type="submit">Delete Note</button>
 	</form>
 	<form method="POST" action="/notes/<%= note.id %>?_method=GET">
-		<input type="hidden" name="bugId" value="<%= bug._id %>">
+		<input type="hidden" name="bugId" value="<%= bug._id %>" />
 		<button type="submit">Edit Note</button>
 	</form>
 </section>

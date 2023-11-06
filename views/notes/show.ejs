@@ -1,9 +1,14 @@
 <%- include("../partials/header") %>
 
 <!-- show textbox w note as default -->
-<form id="edit-report-form" method="POST" action="/notes/<%= note[0]._id %>?_method=PUT">
-    <input type="hidden" name="bugId" value="<%= bug._id %>">
+<form
+	id="edit-note-form"
+	method="POST"
+	action="/notes/<%= note[0]._id %>?_method=PUT"
+>
+	<input type="hidden" name="bugId" value="<%= bug._id %>" />
 	<textarea name="content"> <%= note[0].content %></textarea>
+	<br />
 	<button type="submit">Post</button>
 </form>
 <%- include("../partials/footer") %>

@@ -1,7 +1,7 @@
 module.exports = {
-  index
+	index,
 }
 
 function index(req, res) {
-  res.redirect("/bugs/report/")
+	res.redirect("/bugs/report/")
 }

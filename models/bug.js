@@ -19,7 +19,7 @@ const bugSchema = new Schema({
 	notes: [noteSchema],
 	user: {
 		type: Schema.Types.ObjectId,
-		ref: "User"
+		ref: "User",
 	},
 })
 
