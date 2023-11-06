@@ -1,4 +1,5 @@
 const Bug = require("../models/bug")
+const User = require("../models/user")
 
 module.exports = {
 	new: newBug,
@@ -21,12 +22,16 @@ function showStatus(req, res) {
 }
 
 async function create(req, res) {
-	console.log(req.body.user)
 	req.body.ticketNo = new Date().getTime().toString().slice(-8)
 	req.body.reportDate = new Date().toLocaleTimeString()
 	req.body.user = (req.user ? req.user : null)
 	try {
-		await Bug.create(req.body)
+		const newBug = await Bug.create(req.body)
+		if (req.user) {
+			const user = await User.findById(req.user._id)
+			await user.reports.push(newBug)
+			await user.save()
+		}
 		res.render("bugs/submit", {
 			title: "Thank you!",
 			ticketNo: req.body.ticketNo,
@@ -43,7 +48,7 @@ async function show(req, res) {
 	console.log(req.user)
 	const bug = await Bug.findOne({ticketNo: req.query.ticketNo})
 	if (bug) {
-		res.render("bugs/show", {bug, title: `Report ${req.query.ticketNo}`})
+		res.render("bugs/show", {bug, title: `Report #${req.query.ticketNo}`})
 	} else {
 		res.render("bugs/status", {title: "Please enter a valid ticket number."})
 	}

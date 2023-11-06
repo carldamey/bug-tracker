@@ -1,13 +1,15 @@
 * {
 	box-sizing: border-box;
+	font-family: "Open Sans", sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
 input {
-    margin: 3vmin;
+	margin: 3vmin;
 }
 
 #report-body-input {
-    height: 30vmin;
+	height: 30vmin;
 }
 
 .login-logout {
