@@ -1,12 +1,13 @@
-<%- include("../partials/header") %>
-
-<% if (user) { %>
+<%- include("../partials/header") %> <% if (user) { %>
 <h2>Hi, <%= user.name %>, here are your reports.</h2>
-<% user.reports.forEach(report => { %>
-<a href="../bugs/show?ticketNo=<%=report.ticketNo%>"  >
-	<%= report.ticketNo %> - <%= report.subject %> - <%= report.reportDate %> -
-	<%= report.open? "Open" : "Closed" %> </a
-><br />
-<%})%> <% } else { %>
+<div id="account-reports">
+	<% user.reports.forEach(report => { %>
+	<a href="../bugs/show?ticketNo=<%=report.ticketNo%>">
+		<%= report.ticketNo %> - <%= report.subject %> - <%= report.reportDate %> -
+		<%= report.open? "Open" : "Closed" %> </a
+	><br /><br />
+	<%})%>
+</div>
+<% } else { %>
 <h2>Please <a href="/auth/google">log in</a> to view your reports.</h2>
 <% } %> <%- include("../partials/footer") %>

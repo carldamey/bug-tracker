@@ -1,23 +1,9 @@
 <%- include("../partials/header") %>
-
+<div id="bug">
 <h2><%= bug.subject %></h2>
 <p><%= bug.body %></p>
+</div>
 <h3>This report is currently <%= bug.open ? "open" : "closed" %>.</h3>
-
-<!-- <form action="/bugs" method="PUT">
-	<button type="submit">Edit Report</button>
-</form>
-<br /> -->
-
-<!-- display open status -->
-
-<!-- instead of editing reports, you can edit and delete commetns as additional note -->
-
-
-<!-- <form method="POST" action="/bugs/status?_method=DELETE">
-	<input type="hidden" name="_id" value="<%= bug._id %>" />
-	<button type="submit">Delete Report</button>
-</form> -->
 
 <form action="/notes/:<%= bug.id %>" method="POST">
 	<textarea name="content" placeholder="Add a note"></textarea>
@@ -25,10 +11,12 @@
 	<br />
 	<button type="submit">Add</button>
 </form>
+<br>
 
 <% bug.notes.forEach(note => { %>
 <hr />
 <section class="note">
+	<br>
 	<p><%= note.toObject().content %></p>
 	<p>
 		<small
@@ -36,7 +24,6 @@
 			note.postDate.toLocaleTimeString() %></small
 		>
 	</p>
-	<br />
 	<form method="POST" action="/notes/<%= note._id %>?_method=DELETE">
 		<input type="hidden" name="bugId" value="<%= bug._id %>">
 		<button type="submit">Delete Note</button>
