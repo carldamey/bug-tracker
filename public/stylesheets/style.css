@@ -1,11 +1,47 @@
+
+:root {
+	--darkblue: #2783db;
+	--green: #31db4e;
+	--teal: #27dbc0;
+	--blue: #27bcdb;
+	--darkgreen: #27b883;
+}
+
 * {
 	box-sizing: border-box;
 	font-family: "Open Sans", sans-serif;
 	font-family: "Roboto", sans-serif;
+	margin: 0;
+	text-align: center;
+	background-color: var(--darkgreen);
 }
 
-input {
+nav {
+	background-color: var(--darkblue);
+	font-size: 2vmin;
+	color: var(--darkblue);
+}
+
+nav>a {
+	color: var(--teal);
+	text-decoration: none;
+	margin: 1vmin;
+	padding: 1vmin;
+	background-color: var(--darkblue);
+	font-size: 20px;
+}
+
+nav>a:hover {
+	color: var(--darkblue);
+	background-color: var(--blue);
+}
+
+textarea {
 	margin: 3vmin;
+	text-align: start;
+	background-color: var(--teal);
+	border: .5vmin solid black;
+	
 }
 
 #report-body-input {
@@ -13,7 +49,11 @@ input {
 }
 
 .login-logout {
-	text-align: right;
+	/* text-align: right;
 	right: 1vmin;
-	position: absolute;
+	position: absolute; */
+}
+
+h1 {
+	margin: 7vmin;
 }
