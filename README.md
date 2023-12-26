@@ -37,6 +37,7 @@ While viewing the status of your report, you can add notes below, in case you fi
 ### With time I would like to implement the following features:
 - Admin interaction, piroritization, response, and closure to bug reports.
 - Improved Styling
+- Responsive UI
 
 
 ## Original Pitch
