@@ -1,6 +1,6 @@
 # Bug Tracker
 
-https://bug-tracker-carl-damey-248fea46c845.herokuapp.com/
+### LIVE SITE: https://bug-tracker-carl-damey-248fea46c845.herokuapp.com/
 
 This is a system designed to be implemented in a web app for users to create bug reports, check the status of their report, as well as edit or delete them (Full CRUD). This app was independently developed in a one-week sprint.
 
