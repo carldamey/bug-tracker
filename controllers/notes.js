@@ -22,7 +22,9 @@ async function create(req, res) {
 async function deleteNote(req, res) {
 	try {
 		const bug = await Bug.findById(req.body.bugId)
-		bug.notes = bug.notes.filter(note => note._id.toString() !== req.params.id)
+		bug.notes = bug.notes.filter(
+			(note) => note._id.toString() !== req.params.id
+		)
 		await bug.save()
 		res.redirect(`../bugs/show/?ticketNo=${bug.ticketNo}`)
 	} catch (error) {
@@ -34,7 +36,7 @@ async function update(req, res) {
 	try {
 		const bug = await Bug.findById(req.body.bugId)
 		let noteIdx = bug.notes.findIndex(
-			note => note._id.toString() === req.params.id,
+			(note) => note._id.toString() === req.params.id
 		)
 		bug.notes[noteIdx].content = req.body.content
 		await bug.save()
@@ -47,7 +49,9 @@ async function update(req, res) {
 async function show(req, res) {
 	try {
 		const bug = await Bug.findById(req.body.bugId)
-		const note = bug.notes.filter(note => note._id.toString() === req.params.id)
+		const note = bug.notes.filter(
+			(note) => note._id.toString() === req.params.id
+		)
 		res.render("notes/show", {title: "Update Note", bug, note})
 	} catch (error) {
 		res.render("error", {title: "Error", error})

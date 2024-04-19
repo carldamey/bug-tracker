@@ -16,8 +16,8 @@ router.get(
 			scope: ["profile", "email"],
 			// Optionally force pick account every time
 			// prompt: "select_account"
-		},
-	),
+		}
+	)
 )
 
 // Google OAuth callback route
@@ -26,7 +26,7 @@ router.get(
 	passport.authenticate("google", {
 		successRedirect: "/account-reports",
 		failureRedirect: "/",
-	}),
+	})
 )
 
 // OAuth logout route
